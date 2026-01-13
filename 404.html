@@ -97,7 +97,7 @@
 
     <!-- PROXIMAMENTE / COMING SOON -->
     <section id="proximamente" class="relative min-h-[70vh] bg-cover bg-center flex items-center"
-        style="background-image: url('assets/images/Imagery/en-construccion.jpg');">
+        style="background-image: url('assets/images/Imagery/404.jpg');">
 
         <!-- Overlay oscuro para contraste -->
         <div class="absolute inset-0 bg-slate-900/35"></div>
@@ -106,20 +106,22 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
 
                 <!-- PANEL IZQUIERDO (CONTENIDO) -->
-                <div class="backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl max-w-xl">
+                <div class="hidden lg:block"></div>
 
-                    <h1 class="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
-                        Estamos preparando algo para tu bienestar.
+
+                <!-- PANEL DERECHO (TRANSPARENTE) -->
+                <div class="backdrop-blur-xl rounded-3xl p-8 md:p-10 shadow-2xl max-w-xl text-center">
+
+                    <h1 class="lg:text-[5rem] md:text-4xl font-display font-bold text-white mb-6 leading-tight">
+                       404
                     </h1>
 
+                    <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6 leading-tight">
+                       Página no encontrada.
+                    </h2>
+
                     <p class="text-white text-lg leading-relaxed mb-10 text-justify">
-                        En
-                        <span class="font-bold">
-                            <span> HEALTHPOD</span>
-                        </span>
-                        trabajamos constantemente para mejorar la forma en que cuidamos tu salud.
-                        Mientras tanto, puedes visitar nuestras secciones activas o conocer más sobre
-                        cómo cuidar tu bienestar.
+                        No encontramos el contenido que buscas, pero tu bienestar sigue siendo nuestra prioridad.
                     </p>
 
                     <a href="index.html"
@@ -127,9 +129,6 @@
                         Regresar a Inicio
                     </a>
                 </div>
-
-                <!-- PANEL DERECHO (TRANSPARENTE) -->
-                <div class="hidden lg:block"></div>
 
             </div>
         </div>
@@ -195,7 +194,7 @@
             </div>
 
             <div class="border-t border-slate-100 pt-8 text-center text-slate-400 text-xs">
-                © 2024 HealthPod Mexico. Todos los derechos reservados.
+                © <script>document.write(new Date().getFullYear());</script> HealthPod Mexico. Todos los derechos reservados.
             </div>
         </div>
     </footer>
