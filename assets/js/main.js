@@ -3,22 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =========================
    MOBILE / TABLET DRAWER
 ========================= */
-const btn = document.getElementById('mobile-menu-btn');
-const menu = document.getElementById('mobile-menu');
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
 
-if (btn && menu) {
-  btn.addEventListener('click', () => {
-    menu.classList.toggle('hidden');
-    menu.classList.toggle('flex');
-  });
-
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.add('hidden');
-      menu.classList.remove('flex');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
     });
-  });
-}
+
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+      });
+    });
+  }
 
   /* =========================
      SCROLL REVEAL
@@ -75,26 +75,26 @@ if (btn && menu) {
   checkReveal();
   handleNavbarStyles();
 
-/* ===============================
-   PRICING TOGGLE FUNCTIONALITY
-=============================== */
-const toggle = document.getElementById('pricingToggle');
-const annuallyPrices = document.querySelectorAll('.annually-price');
-const monthlyPrices = document.querySelectorAll('.monthly-price');
+  /* ===============================
+     PRICING TOGGLE FUNCTIONALITY
+  =============================== */
+  const toggle = document.getElementById('pricingToggle');
+  const annuallyPrices = document.querySelectorAll('.annually-price');
+  const monthlyPrices = document.querySelectorAll('.monthly-price');
 
-if (toggle) {
-  toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-      // Mostrar mensual
-      annuallyPrices.forEach(el => el.classList.add('hidden'));
-      monthlyPrices.forEach(el => el.classList.remove('hidden'));
-    } else {
-      // Mostrar anual
-      annuallyPrices.forEach(el => el.classList.remove('hidden'));
-      monthlyPrices.forEach(el => el.classList.add('hidden'));
-    }
-  });
-}
+  if (toggle) {
+    toggle.addEventListener('change', () => {
+      if (toggle.checked) {
+        // Mostrar mensual
+        annuallyPrices.forEach(el => el.classList.add('hidden'));
+        monthlyPrices.forEach(el => el.classList.remove('hidden'));
+      } else {
+        // Mostrar anual
+        annuallyPrices.forEach(el => el.classList.remove('hidden'));
+        monthlyPrices.forEach(el => el.classList.add('hidden'));
+      }
+    });
+  }
 
   /* =========================
      DYNAMIC IMAGE ANIMATIONS
@@ -128,4 +128,30 @@ if (toggle) {
   window.addEventListener('resize', updateDynamicImages);
   updateDynamicImages();
 
+});
+
+/* =========================
+   DYNAMIC IMAGE ANIMATIONS
+   (REEMPLAZO DEL SCRIPT INYECTADO)
+========================= */
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  // Simulación de carga
+  const btn = this.querySelector('button');
+  const originalText = btn.innerText;
+  btn.innerText = "ENVIANDO...";
+  btn.disabled = true;
+
+  setTimeout(() => {
+    this.innerHTML = `
+                    <div class="text-center py-10 animate-pulse">
+                        <div class="inline-flex items-center justify-center w-20 h-20 bg-hpGreen rounded-full mb-6">
+                            <svg class="w-10 h-10 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h3 class="font-poppins text-3xl font-bold text-hpGreen mb-4">¡Propuesta Solicitada!</h3>
+                        <p class="text-gray-400 text-lg">Hemos recibido tus datos. Un especialista se pondrá en contacto para diseñar la infraestructura de salud de tu proyecto.</p>
+                    </div>
+                `;
+  }, 1500);
 });
